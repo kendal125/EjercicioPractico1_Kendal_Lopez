@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Listado de Servicios</title>
+        <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    </head>
+    <body>
+        <!-- Header y Navbar -->
+        <header>
+            <img th:src="@{/img/logo.png}" alt="Logo Salón" class="logo">
+            <h1>Servicios</h1>
+        </header>
+
+        <nav>
+            <a th:href="@{/}">Inicio</a>
+            <a th:href="@{/categorias}">Categorías</a>
+            <a th:href="@{/servicios}">Servicios</a>
+            <a th:href="@{/reservas}">Reservas</a>
+            <a th:href="@{/contacto}">Contacto</a>
+        </nav>
+
+        <!-- Tabla de Servicios -->
+        <section class="section-servicios">
+            <h2>Listado de Servicios</h2>
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Categoría</th>
+                        <th>Imagen</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="servicio : ${servicios}">
+                        <td th:text="${servicio.id}"></td>
+                        <td th:text="${servicio.nombre}"></td>
+                        <td th:text="${servicio.precio}"></td>
+                        <td th:text="${servicio.categoria.nombre}"></td>
+                        <td>
+                            <img th:src="@{/img/pelo_mujer.png}" alt="Imagen Servicio" width="80"
+                                 th:if="${servicio.nombre.contains('Corte')}">
+                            <img th:src="@{/img/masaje.png}" alt="Imagen Servicio" width="80"
+                                 th:if="${servicio.nombre.contains('Masaje')}">
+                            <img th:src="@{/img/uñas.png}" alt="Imagen Servicio" width="80"
+                                 th:if="${servicio.nombre.contains('Uña')}">
+                        </td>
+                        <td>
+                            <a th:href="@{|/servicios/editar/${servicio.id}|}">Editar</a> |
+                            <a th:href="@{|/servicios/eliminar/${servicio.id}|}">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <a th:href="@{/servicios/nuevo}">Agregar Nuevo Servicio</a>
+        </section>
+
+        <footer>
+            <p>© 2026 Salón de Belleza. Todos los derechos reservados.</p>
+        </footer>
+    </body>
+</html>

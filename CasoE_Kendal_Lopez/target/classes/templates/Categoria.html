@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Categorías</title>
+        <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    </head>
+    <body>
+        <!-- Header y Navbar -->
+        <header>
+            <img th:src="@{/img/logo.png}" alt="Logo Salón" class="logo">
+            <h1>Categorías</h1>
+        </header>
+        <nav>
+            <a th:href="@{/}">Inicio</a>
+            <a th:href="@{/categorias}">Categorías</a>
+            <a th:href="@{/servicios}">Servicios</a>
+            <a th:href="@{/reservas}">Reservas</a>
+            <a th:href="@{/contacto}">Contacto</a>
+        </nav>
+
+        <section class="section-servicios">
+            <h2>Listado de Categorías</h2>
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="categoria : ${categorias}">
+                        <td th:text="${categoria.id}"></td>
+                        <td th:text="${categoria.nombre}"></td>
+                        <td>
+                            <a th:href="@{|/categorias/editar/${categoria.id}|}">Editar</a> |
+                            <a th:href="@{|/categorias/eliminar/${categoria.id}|}">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <a th:href="@{/categorias/nuevo}">Agregar Nueva Categoría</a>
+        </section>
+
+        <footer>
+            <p>© 2026 Salón de Belleza. Todos los derechos reservados.</p>
+        </footer>
+    </body>
+</html>

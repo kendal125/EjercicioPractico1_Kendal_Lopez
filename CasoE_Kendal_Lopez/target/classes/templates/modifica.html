@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulario de Categoría</title>
+        <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    </head>
+    <body>
+        <!-- Header y Navbar -->
+        <header>
+            <img th:src="@{/img/logo.png}" alt="Logo Salón" class="logo">
+            <h1>Formulario de Categoría</h1>
+        </header>
+        <nav>
+            <a th:href="@{/}">Inicio</a>
+            <a th:href="@{/categorias}">Categorías</a>
+            <a th:href="@{/servicios}">Servicios</a>
+            <a th:href="@{/reservas}">Reservas</a>
+            <a th:href="@{/contacto}">Contacto</a>
+        </nav>
+
+        <section class="section-servicios">
+            <form th:action="@{/categorias/guardar}" th:object="${categoria}" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" th:field="*{nombre}" required>
+                <br><br>
+                <button type="submit">Guardar</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>© 2026 Salón de Belleza. Todos los derechos reservados.</p>
+        </footer>
+    </body>
+</html>

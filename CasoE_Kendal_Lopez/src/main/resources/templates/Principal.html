@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Salón de Belleza</title>
+        <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    </head>
+    <body>
+ 
+        <header>
+            <img th:src="@{/img/pngtree-beauty-salon-logo-vector-png-image_7152444.png}" alt="Logo Salón" class="logo">
+            <h1>Bienvenidos a nuestro Salón de Belleza</h1>
+        </header>
+
+        <nav>
+            <a th:href="@{/}">Inicio</a>
+            <a th:href="@{/categorias}">Categorías</a>
+            <a th:href="@{/servicios}">Servicios</a>
+            <a th:href="@{/reservas}">Reservas</a>
+            <a th:href="@{/contacto}">Contacto</a>
+        </nav>
+
+        <!-- Sección Promoción -->
+        <section class="section-promocion">
+            <h1>Servicio Destacado: Corte de Cabello Mujer</h1>
+            <img th:src="@{/img/pngtree-portrait-fashion-woman-hair-cut-png-image_13048718.png}" alt="Corte de Cabello Mujer">
+            <p>Ven y prueba nuestro nuevo estilo de corte con los mejores profesionales.</p>
+        </section>
+
+        <!-- Sección Servicios Destacados -->
+        <section class="section-servicios">
+            <h2>Otros Servicios Destacados</h2>
+            <div class="servicio-card">
+                <img th:src="@{/img/pngtree-female-receiving-head-massage-at-spa-masseuse-health-girl-png-image_11774774.png}" alt="Masaje Relajante">
+                <h3>Masaje Relajante</h3>
+                <p>Disfruta de un masaje único para relajarte y liberar tensiones.</p>
+            </div>
+            <div class="servicio-card">
+                <img th:src="@{/img/R.png}" alt="Manicure y Pedicure">
+                <h3>Manicure y Pedicure</h3>
+                <p>Lujo y cuidado para tus uñas con los mejores productos.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 Salón de Belleza. Todos los derechos reservados.</p>
+            <a href="#">Facebook</a> | <a href="#">Instagram</a>
+        </footer>
+    </body>
+</html>
